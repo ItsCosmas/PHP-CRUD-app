@@ -6,6 +6,8 @@
 #### To Use on your Local Machine,clone this repo,edit the connection.php to use your MySql port server
 #### i.e. here 👉 mysql:host=localhost:3307 change to mysql:host=localhost:your_port e.g. localhost:3306
 #### Sign Up, Log in and test out the crud features
-#### Styling has been done using online bootstrap so you need an internet connection to load the Styles
+#### Styling has been done using online bootstrap 4 so you need an internet connection to load the Styles
+
+#### Check Out the Screenshots Folder 😎
 
 #### code by Cozy 👽
