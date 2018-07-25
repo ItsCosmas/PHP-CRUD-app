@@ -23,10 +23,10 @@ $notes;
 			$errors = '<div class="alert alert-warning"><strong> All fields are required! </strong> Please try again 😒</div>';
 		}else{
 				 	
-			$query = $pdo->prepare("UPDATE `crud.notes` SET `noteTitle` = ?, `noteContent` = ?)
-            VALUES ( ?, ?)");
+			$query = $pdo->prepare("UPDATE `notes` SET `noteTitle` =?, `noteContent` = ? WHERE `noteID` = ?;");
 			$query->bindValue(1, $noteTitle);	
-			$query->bindValue(2, $noteContent);	
+            $query->bindValue(2, $noteContent);
+            $query->bindValue(3, $noteID);
                             
             $query -> execute(); 
 		    header('Location: ../index.php');	
@@ -56,7 +56,7 @@ $notes;
 </head>
 <body>
 
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
 <div class="container">
 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 text-left">
 <label for="noteTitle"><h6>Note Title</h6></label><br>
