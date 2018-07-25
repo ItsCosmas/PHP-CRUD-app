@@ -1,7 +1,3 @@
-<?php /*
-This is a PHP CRUD App
-*/ ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,11 +16,11 @@ This is a PHP CRUD App
 
 </head>
 <body>
-
+<div class="container">
 <p>This is My CRUD App</p>
 <a href="backend/login.php">Log In</a>
 <a href="backend/signup.php">Sign Up</a>
-
+</div>
 
 <div class="container">
 <!-- A Bootstrap Table -->
@@ -63,10 +59,22 @@ This is a PHP CRUD App
   </tbody>
 </table>
 </div>
+<form action="backend/submit.php" method="POST">
 <div class="container">
 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 text-left">
-<textarea name="content" id="editor" cols="30" rows="8"></textarea><br>
-<button type="button" class="btn btn-primary">Publish</button></div>
+<label for="noteTitle"><h6>Note Title</h6></label><br>
+<input type="text" name="noteTitle" id="" ><br />
+<br>
+<label for="noteContent"><h6>Note Content</h6></label><br>
+<textarea name="noteContent" id="editor" cols="30" rows="8"></textarea><br>
+<button type="submit" class="btn btn-primary">Publish</button></div>
+</div>
+</form>
+<div class="container">
+<!--show erros if isset-->
+<?php if(isset($errors)){
+                                echo $errors;
+                            }?>
 </div>
     
 <script>
