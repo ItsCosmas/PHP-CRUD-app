@@ -14,5 +14,17 @@ public function getAllNotes(){
 
     return $query->fetchAll(PDO::FETCH_ASSOC);
 }
+
+//fetch Notes data by noteID 
+public function fetchNoteData($noteID){
+    global $pdo;
+
+    $query = $pdo->prepare('SELECT * FROM notes where noteID = ?');
+    $query->BindValue(1,$noteID);
+    $query->execute();
+
+    return $query->fetch();
+}
+
 }
 ?>

@@ -1,11 +1,40 @@
 <?php
-include_once ('backend/connection.php');
-include_once ('backend/functions/main.php');
+include_once ('connection.php');
+include_once ('functions/main.php');
 
 $theNotes = new Main;
+$notes;
 
-$notes = $theNotes->getAllNotes();
+	if(isset($_SESSION['loggedin'])===false){
+		header('Location: ../index.php');
+	}else{
 
+    if(isset($_GET['noteID'])){
+            $noteID = $_GET['noteID'];
+            $notes = $theNotes->fetchNoteData($noteID);
+
+ 	if($_POST){
+		$noteTitle = $_POST['noteTitle'];
+        $noteContent = $_POST['noteContent'];
+        
+        
+
+ 		if(empty($noteTitle) or empty($noteContent)){
+			$errors = '<div class="alert alert-warning"><strong> All fields are required! </strong> Please try again 😒</div>';
+		}else{
+				 	
+			$query = $pdo->prepare("UPDATE `crud.notes` SET `noteTitle` = ?, `noteContent` = ?)
+            VALUES ( ?, ?)");
+			$query->bindValue(1, $noteTitle);	
+			$query->bindValue(2, $noteContent);	
+                            
+            $query -> execute(); 
+		    header('Location: ../index.php');	
+
+					 }
+				 	}
+                }
+            }
 
 ?>
 <!DOCTYPE html>
@@ -22,51 +51,19 @@ $notes = $theNotes->getAllNotes();
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="ckeditor/ckeditor.js"></script> <!-- CK Editor-->
+    <script src="../ckeditor/ckeditor.js"></script> <!-- CK Editor-->
 
 </head>
 <body>
-<div class="container">
-<p>This is My CRUD App</p>
-<a href="backend/login.php">Log In</a>
-<a href="backend/signup.php">Sign Up</a>
-</div>
 
-<div class="container">
-<!-- A Bootstrap Table -->
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">note ID</th>
-      <th scope="col">note Title</th>
-      <th scope="col">note Content</th>
-      <th scope="col">note TimeStamp</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-        
-        <?php foreach($notes as $notes){?>
-            <tr>
-                    <th scope="row"><h6><?php echo $notes['noteID']?></h6></th>
-                    <td><h6><?php echo $notes['noteTitle']?></h6></td>
-                    <td><?php echo $notes['noteContent']?></td>
-                    <td><span><?php echo $notes['noteDate']?></span></td>
-                    <td><a href="backend/edit.php?noteID=<?php echo $notes['noteID'];?>"><Button type="button" class="btn btn-primary">Edit</Button></a>
-                    <Button type="button" class="btn btn-danger" name="<?php echo $notes['noteID']; ?>" onClick="deleteNote(<?php echo $notes['noteID']; ?>)">Delete</Button></td>
-            </tr>    
-        <?php } ?>
-  </tbody>
-</table>
-</div>
-<form action="backend/submit.php" method="POST">
+<form action="" method="POST">
 <div class="container">
 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 text-left">
 <label for="noteTitle"><h6>Note Title</h6></label><br>
-<input type="text" name="noteTitle" id="" ><br />
+<input type="text" name="noteTitle" id="" value="<?php echo $notes['noteTitle'];?>" ><br />
 <br>
 <label for="noteContent"><h6>Note Content</h6></label><br>
-<textarea name="noteContent" id="editor" cols="30" rows="8"></textarea><br>
+<textarea name="noteContent" id="editor" cols="30" rows="8"><?php echo $notes['noteContent'] ?></textarea><br>
 <button type="submit" class="btn btn-primary">Publish</button></div>
 </div>
 </form>
@@ -80,12 +77,7 @@ $notes = $theNotes->getAllNotes();
 <script>
 //<!-- This Script Adds CK Editor to the page -->
 CKEDITOR.replace( 'editor' );
-function deleteNote(x){
-         var confirmDelete = confirm( "Are you sure you want to delete this Note?");
-             if(confirmDelete == true){              
-             window.location = "backend/delete.php?noteID=" + x;
-             }
-	}
 </script>
+
 </body>
 </html>
