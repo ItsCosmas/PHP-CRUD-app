@@ -62,11 +62,11 @@ This is a PHP CRUD App
     </tr>
   </tbody>
 </table>
-<div class="row">
-<div class="container col-lg-8 col-md-8 col-sm-12 col-xs-12 text-left">
+</div>
+<div class="container">
+<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 text-left">
 <textarea name="content" id="editor" cols="30" rows="8"></textarea><br>
 <button type="button" class="btn btn-primary">Publish</button></div>
-</div>
 </div>
     
 <script>
