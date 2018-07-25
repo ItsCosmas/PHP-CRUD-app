@@ -1,3 +1,13 @@
+<?php
+include_once ('backend/connection.php');
+include_once ('backend/functions/main.php');
+
+$theNotes = new Main;
+
+$notes = $theNotes->getAllNotes();
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,32 +40,22 @@
       <th scope="col">note ID</th>
       <th scope="col">note Title</th>
       <th scope="col">note Content</th>
-      <th scope="col">note Date</th>
+      <th scope="col">note TimeStamp</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><Button type="button" class="btn btn-primary">Edit</Button> <Button type="button" class="btn btn-danger">Delete</Button></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td><Button type="button" class="btn btn-primary">Edit</Button> <Button type="button" class="btn btn-danger">Delete</Button></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td><Button type="button" class="btn btn-primary">Edit</Button> <Button type="button" class="btn btn-danger">Delete</Button></td>
-    </tr>
+        
+        <?php foreach($notes as $notes){?>
+            <tr>
+                    <th scope="row"><h6><?php echo $notes['noteID']?></h6></th>
+                    <td><h6><?php echo $notes['noteTitle']?></h6></td>
+                    <td><?php echo $notes['noteContent']?></td>
+                    <td><span><?php echo $notes['noteDate']?></span></td>
+                    <td><Button type="button" class="btn btn-primary">Edit</Button>
+                    <Button type="button" class="btn btn-danger" name="<?php echo $notes['noteID']; ?>" onClick="deleteNote(<?php echo $notes['noteID']; ?>)">Delete</Button></td>
+            </tr>    
+        <?php } ?>
   </tbody>
 </table>
 </div>
@@ -79,6 +79,13 @@
     
 <script>
 //<!-- This Script Adds CK Editor to the page -->
-CKEDITOR.replace( 'editor' );</script>
+CKEDITOR.replace( 'editor' );
+function deleteNote(x){
+         var confirmDelete = confirm( "Are you sure you want to delete this Note?");
+             if(confirmDelete == true){              
+             window.location = "backend/delete.php?noteID=" + x;
+             }
+	}
+</script>
 </body>
 </html>
