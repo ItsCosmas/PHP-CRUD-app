@@ -16,6 +16,7 @@ This is a PHP CRUD App
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="ckeditor/ckeditor.js"></script> <!-- CK Editor-->
 
 </head>
 <body>
@@ -23,6 +24,53 @@ This is a PHP CRUD App
 <p>This is My CRUD App</p>
 <a href="backend/login.php">Log In</a>
 <a href="backend/signup.php">Sign Up</a>
+
+
+<div class="container">
+<!-- A Bootstrap Table -->
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">note ID</th>
+      <th scope="col">note Title</th>
+      <th scope="col">note Content</th>
+      <th scope="col">note Date</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td><Button type="button" class="btn btn-primary">Edit</Button> <Button type="button" class="btn btn-danger">Delete</Button></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+      <td><Button type="button" class="btn btn-primary">Edit</Button> <Button type="button" class="btn btn-danger">Delete</Button></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+      <td><Button type="button" class="btn btn-primary">Edit</Button> <Button type="button" class="btn btn-danger">Delete</Button></td>
+    </tr>
+  </tbody>
+</table>
+<div class="row">
+<div class="container col-lg-8 col-md-8 col-sm-12 col-xs-12 text-left">
+<textarea name="content" id="editor" cols="30" rows="8"></textarea><br>
+<button type="button" class="btn btn-primary">Publish</button></div>
+</div>
+</div>
     
+<script>
+//<!-- This Script Adds CK Editor to the page -->
+CKEDITOR.replace( 'editor' );</script>
 </body>
 </html>
