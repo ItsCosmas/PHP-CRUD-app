@@ -71,7 +71,7 @@ if($check_login === false){
 <input type="text" name="noteTitle" id="" ><br />
 <br>
 <label for="noteContent"><h6>Note Content</h6></label><br>
-<textarea name="noteContent" id="editor" cols="30" rows="8"></textarea><br>
+<textarea name="noteContent" id="editor" cols="30" rows="8"></textarea><br><br>
 <button type="submit" class="btn btn-primary">Publish</button></div>
 </div>
 </form>

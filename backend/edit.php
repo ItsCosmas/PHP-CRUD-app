@@ -64,7 +64,7 @@ $notes;
 <input type="text" name="noteTitle" id="" value="<?php echo $notes['noteTitle'];?>" ><br />
 <br>
 <label for="noteContent"><h6>Note Content</h6></label><br>
-<textarea name="noteContent" id="editor" cols="30" rows="8"><?php echo $notes['noteContent'] ?></textarea><br>
+<textarea name="noteContent" id="editor" cols="30" rows="8"><?php echo $notes['noteContent'] ?></textarea><br><br>
 <button type="submit" class="btn btn-primary">Publish</button></div>
 </div>
 </form>
