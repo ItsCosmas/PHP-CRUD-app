@@ -1,11 +1,16 @@
 <?php
+/* Author: Cozy👽 https://github.com/ItsCosmas */
 include_once ('backend/connection.php');
 include_once ('backend/functions/main.php');
 
 $theNotes = new Main;
+$check = new Main;
 
 $notes = $theNotes->getAllNotes();
-
+$check_login = $check->logged_in();
+if($check_login === false){
+    header('Location: backend/login.php');
+}else{
 
 ?>
 <!DOCTYPE html>
@@ -27,10 +32,10 @@ $notes = $theNotes->getAllNotes();
 </head>
 <body>
 <div class="container">
-<p>This is My CRUD App</p>
-<a href="backend/login.php">Log In</a>
-<a href="backend/signup.php">Sign Up</a>
+<h6>Welcome <?php echo $_SESSION['username'] ?></h6>
+<Button type="button" class="btn btn-secondary" onClick="logOut()">Log Out</Button>
 </div>
+<hr>
 
 <div class="container">
 <!-- A Bootstrap Table -->
@@ -58,7 +63,7 @@ $notes = $theNotes->getAllNotes();
         <?php } ?>
   </tbody>
 </table>
-</div>
+</div> <hr>
 <form action="backend/submit.php" method="POST">
 <div class="container">
 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 text-left">
@@ -86,6 +91,10 @@ function deleteNote(x){
              window.location = "backend/delete.php?noteID=" + x;
              }
 	}
+function logOut(){
+    window.location = "backend/logout.php";
+}
 </script>
 </body>
 </html>
+<?php }?>

@@ -1,9 +1,6 @@
-<?php /*
-This is a PHP CRUD App
-*/ ?>
-
 <!DOCTYPE html>
 <html>
+<!-- Author: Cozy https://github.com/ItsCosmas -->
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +24,7 @@ This is a PHP CRUD App
             </div>
         <div class="form-group">
             <label for="email">Email *</label>
-            <input type="email" class="form-control" name="Email" aria-describedby="Email" placeholder="Enter your email">
+            <input type="email" class="form-control" name="email" aria-describedby="Email" placeholder="Enter your email">
         </div>
         <div class="form-group">
                 <label for="username">Username *</label>
@@ -45,8 +42,8 @@ This is a PHP CRUD App
         <button type="submit" name="register" class="btn btn-primary">Register</button>
         <div style="margin-top:10px">
                             <?php 
-                            if(isset($error)){
-                                echo $error;
+                            if(isset($errors)){
+                                echo $errors;
                             }
                             ?>
                     </div>

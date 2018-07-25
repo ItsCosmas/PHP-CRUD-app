@@ -1,6 +1,7 @@
 <?php
+/* Author: Cozy👽 https://github.com/ItsCosmas */
 class Main{
-//Check if admin user is logged in 
+//Check if user is logged in 
 public function logged_in(){
     return (isset($_SESSION['loggedin'])) ? true : false;
 }
@@ -24,6 +25,17 @@ public function fetchNoteData($noteID){
     $query->execute();
 
     return $query->fetch();
+}
+
+//fetch user by username
+public function fetchUser($username){
+    global $pdo;
+
+    $query = $pdo->prepare('SELECT * FROM user WHERE username = ?');
+    $query->bindValue(1, $username);
+    $query->execute();
+
+
 }
 
 }

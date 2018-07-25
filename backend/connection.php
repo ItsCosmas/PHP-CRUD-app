@@ -1,4 +1,5 @@
 <?php 
+/* Author: Cozy👽 https://github.com/ItsCosmas */
 session_start();
 
 // Change port number to your desire based on your mysql installation

@@ -1,4 +1,5 @@
 <?php
+/* Author: Cozy👽 https://github.com/ItsCosmas */
 include_once ('connection.php');
 include_once ('functions/main.php');
 
