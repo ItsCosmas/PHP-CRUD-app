@@ -1,0 +1,18 @@
+/* All Page Styling goes here */
+@import 'bootstrap.min.css';
+@import 'fontawesome.min.css';
+
+/* Prevents Page Content from hiding below the header */
+.pageBelowNav{
+    margin-top: 80px;
+}
+/* Style on the genuine image inside footer */
+img.genuine-icon{
+    margin-top: 15px;
+    width:175px;
+    height:175px;
+}
+/* Styles on the Main Content Containers */
+.container{
+    margin-top: 30px;
+}
