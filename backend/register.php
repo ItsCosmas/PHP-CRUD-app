@@ -30,7 +30,7 @@
             $errors = '<div class="alert alert-warning"><strong> Both Passwords should Match! </strong> Please try again 😒</div>';
             header('Location: signup.php');	
         }else if($userCount > 1){
-            $errors = '<div class="alert alert-warning"><strong> Username is Taken </strong> Please another one 😒</div>';
+            $errors = '<div class="alert alert-warning"><strong> Username is Taken </strong> Please Try Another one 😒</div>';
             header('Location: signup.php');
            
         }else{
