@@ -5,7 +5,7 @@
 
 #### To Use on your Local Machine,clone this repo,edit the connection.php to use your MySql port server
 #### i.e. here 👉 mysql:host=localhost:3307 change to mysql:host=localhost:your_port e.g. localhost:3306
-#### Execute the SQL file attached and your good to go 😎
+#### Create DB named crud, execute the SQL file attached and your good to go 😎
 #### Sign Up, Log in and test out the crud features
 #### If you have trouble with Sign Up use my details to log in
 ##### Username : "Cozy" Password : "test"
