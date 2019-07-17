@@ -13,7 +13,7 @@
 
 - Sign Up, Log in and test out the crud features
 
-- If you have trouble with Sign Up use my details to log in
+- If you have trouble with Sign Up use the following details to log in:
 
 - Username : ```Cozy``` Password : ```test```
 
