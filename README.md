@@ -7,7 +7,7 @@
 
 - i.e. here  ```mysql:host=localhost:3307``` change to ```mysql:host=localhost:your_port``` e.g. ```localhost:3306```
 
-- Create DB named ```crud``` , Import the SQL file attached to create db structure and dump data.
+- Using ```phpmyadmin``` create a database named ```crud``` , import the SQL file attached to create the db structure and dump data.
 
 - That's it, get to testing:
 
