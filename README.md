@@ -1,22 +1,24 @@
 
 # A PHP CRUD app with MySQL
 
-## This Simple Application Displays the basics of Log In/Log Out and CRUD with PHP
+- ## This is a very Simple Application to show the absolute basics of a Log In/Log Out and CRUD(Create, Read, Delete and Update) app with PHP.
 
-### To Use on your Local Machine,clone this repo,edit the connection.php to use your MySql port server
+- ### To Use on your locallly ,clone this repo then edit connection ```connection.php``` to set up your MySql DB port and credentials
 
-#### i.e. here  mysql:host=localhost:3307 change to mysql:host=localhost:your_port e.g. localhost:3306
+- #### i.e. here  ```mysql:host=localhost:3307``` change to ```mysql:host=localhost:your_port``` e.g. ```localhost:3306```
 
-#### Create DB named "crud", execute the SQL file attached to import db structure and data and your good to go 
+- #### Create DB named ```crud``` , Import the SQL file attached to create db structure and dump data.
 
-#### Sign Up, Log in and test out the crud features
+- #### That's it, get to testing:
 
-#### If you have trouble with Sign Up use my details to log in
+- #### Sign Up, Log in and test out the crud features
 
-##### Username : "Cozy" Password : "test"
+- #### If you have trouble with Sign Up use my details to log in
 
-#### Styling has been done using online bootstrap 4 so you need an internet connection to load the Styles
+- ##### Username : ```Cozy``` Password : ```test```
 
-#### Check Out the Screenshots Folder 
+- #### Styling has been done using online bootstrap4 CDN so you need an internet connection to load the Styles
 
-#### code by Cozy 
+- #### Check out the screenshots folder for a sneak peak:
+
+- #### code by Cozy.
