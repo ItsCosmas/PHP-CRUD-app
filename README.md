@@ -3,7 +3,7 @@
 
 - This is a very Simple Application to show the absolute basics of a Log In/Log Out and CRUD(Create, Read, Delete and Update) app with PHP.
 
-- To Use on your locallly ,clone this repo then edit connection ```connection.php``` to set up your MySql DB port and credentials
+- To Use on your locallly ,clone this repo then edit connection ```connection.php``` to set up your MySql DB port and credentials:
 
 - i.e. here  ```mysql:host=localhost:3307``` change to ```mysql:host=localhost:your_port``` e.g. ```localhost:3306```
 
